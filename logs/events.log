@@ -1,0 +1,23 @@
+[2025-06-06 06:18:57.066670] 👀 Monitoring: /watched2
+[2025-06-06 06:18:57.062775] 👀 Monitoring: /watched1
+[2025-06-06 06:19:52.155763] Created: hello.txt in /watched1/
+[2025-06-06 06:20:00.207355] Modified: world.py in /watched2/
+[2025-06-06 06:20:00.208961] Modified: world.py in /watched2/
+[2025-06-06 06:20:02.428058] Modified: world.py in /watched2/
+[2025-06-06 06:20:02.431036] Modified: world.py in /watched2/
+[2025-06-06 06:20:05.233166] Modified: world.py in /watched2/
+[2025-06-06 06:20:05.267952] Modified: world.py in /watched2/
+[2025-06-06 06:20:07.610171] Modified: world.py in /watched2/
+[2025-06-06 06:20:07.613034] Modified: world.py in /watched2/
+[2025-06-06 06:20:09.780698] Modified: world.py in /watched2/
+[2025-06-06 06:20:09.814509] Modified: world.py in /watched2/
+[2025-06-06 06:20:11.103565] Modified: world.py in /watched2/
+[2025-06-06 06:20:11.108557] Modified: world.py in /watched2/
+[2025-06-06 06:20:13.000509] Modified: world.py in /watched2/
+[2025-06-06 06:20:13.003032] Modified: world.py in /watched2/
+[2025-06-06 06:20:36.797848] Created: fri.js in /watched2/
+[2025-06-06 06:20:46.867694] Deleted: world.py from /watched2/
+[2025-06-06 06:21:59.532158] Moved: fri.js in /watched2/ (MOVED_FROM)
+[2025-06-06 06:21:59.532668] Moved: fri.js in /watched1/ (MOVED_TO)
+[2025-06-06 06:24:07.484959] Permission/metadata changed: hello.txt in /watched1/
+[2025-06-06 06:32:32.470352] Stopping monitor.
