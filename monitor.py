@@ -1,5 +1,6 @@
 import subprocess
 import os
+import sys
 import threading
 from datetime import datetime
 
@@ -15,24 +16,62 @@ def log(message):
     if LOG_FILE:
         with open(LOG_FILE, "a") as f:
             f.write(timestamped + "\n")
-
+'''
 def watch_directory(path):
     path = path.strip()
     if not os.path.exists(path):
         log(f"Directory does not exist: {path}")
         return
 
-    log(f"👀 Monitoring: {path}")
+    log(f"Monitoring: {path}")
+'''
 
-    # Monitor create, delete, modify, move, and attrib (permission) events
+
+# Inotify events we want to track for forensic purposes
+EVENTS = [
+    "access",        # File was read
+    "open",          # File was opened
+    "modify",        # Content changed
+    "attrib",        # Metadata (permissions/timestamps) changed
+    "close_write",   # File closed after writing
+    "close_nowrite", # File closed without writing
+    "create",        # File created
+    "delete",        # File deleted
+    "delete_self",   # Watched file deleted
+    "moved_from",    # File moved out
+    "moved_to",      # File moved in
+    "move_self",     # Watched file itself moved
+    "unmount"        # Filesystem unmounted
+]
+
+def get_file_info(filepath):
+    try:
+        file_stat = os.lstat(filepath)  # lstat to catch symlinks
+        uid = file_stat.st_uid
+        gid = file_stat.st_gid
+        is_symlink = stat.S_ISLNK(file_stat.st_mode)
+        return uid, gid, is_symlink
+    except FileNotFoundError:
+        return None, None, False
+
+def watch_directory(path):
+    path = path.strip()
+    if not os.path.exists(path):
+        print(f"[ERROR] Directory does not exist: {path}")
+        return
+
+    print(f"[INFO] Monitoring: {path}")
+
     process = subprocess.Popen(
-        ["inotifywait", "-m",
-         "-e", "create",
-         "-e", "delete",
-         "-e", "modify",
-         "-e", "move",
-         "-e", "attrib",  # permission/metadata change
-         path],
+        [
+            "inotifywait",
+            "-m",                # Continuous monitoring
+            "-r",                # Recursive
+            "-e", ",".join(EVENTS),  # Events to watch
+            "--format", "%T %e %w%f",  # Format: timestamp event file
+            "--timefmt", "%Y-%m-%d %H:%M:%S",
+            path
+        ],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True
@@ -40,32 +79,26 @@ def watch_directory(path):
 
     try:
         for line in process.stdout:
-            parts = line.strip().split()
+            line = line.strip()
+            parts = line.split(maxsplit=2)
             if len(parts) < 3:
                 continue
-
-            directory, events, filename = parts[0], parts[1], ' '.join(parts[2:])
-
-            if "CREATE" in events:
-                log(f"Created: {filename} in {directory}")
-            elif "DELETE" in events:
-                log(f"Deleted: {filename} from {directory}")
-            elif "MODIFY" in events:
-                log(f"Modified: {filename} in {directory}")
-            elif "MOVED_FROM" in events or "MOVED_TO" in events:
-                log(f"Moved: {filename} in {directory} ({events})")
-            elif "ATTRIB" in events:
-                log(f"Permission/metadata changed: {filename} in {directory}")
-
+            timestamp, event, filepath = parts
+            uid, gid, is_symlink = get_file_info(filepath)
+            extra_info = f" | UID={uid} GID={gid}"
+            if "CREATE" in event and is_symlink:
+                extra_info += " | [SYMLINK CREATED]"
+            print(f"[EVENT] {timestamp} {event} {filepath}{extra_info}")
     except Exception as e:
-        log(f"Error watching {path}: {e}")
+        print(f"[ERROR] Watching {path}: {e}")
     finally:
         process.terminate()
 
 def main():
     threads = []
+
     for dir_path in WATCH_DIRS:
-        thread = threading.Thread(target=watch_directory, args=(dir_path.strip(),))
+        thread = threading.Thread(target=watch_directory, args=(dir_path,))
         thread.start()
         threads.append(thread)
 
@@ -73,12 +106,23 @@ def main():
         for thread in threads:
             thread.join()
     except KeyboardInterrupt:
-        log("Stopping monitor.")
+        print("\n[INFO] Stopping monitor...")
 
 if __name__ == "__main__":
     main()
 
 
+'''
+sudo docker run -it --rm \
+  --name file-watcher \
+  --privileged \
+  -v "$PWD/watched1:/watched1" \
+  -v "$PWD/watched2:/watched2" \
+  -v "$PWD/logs:/log" \
+  -e WATCH_DIRS="/watched1,/watched2" \
+  -e LOG_FILE="/log/events.log" \
+  file-watcher
+'''
 
 
 

@@ -21,3 +21,67 @@
 [2025-06-06 06:21:59.532668] Moved: fri.js in /watched1/ (MOVED_TO)
 [2025-06-06 06:24:07.484959] Permission/metadata changed: hello.txt in /watched1/
 [2025-06-06 06:32:32.470352] Stopping monitor.
+[2025-06-10 05:12:36.105825] Monitoring: /watched2
+[2025-06-10 05:12:36.105037] Monitoring: /watched1
+[2025-06-10 05:13:19.732104] Created: world.py in /watched2/
+[2025-06-10 05:13:32.887938] Modified: hello.txt in /watched1/
+[2025-06-10 05:13:42.961104] Modified: hello.txt in /watched1/
+[2025-06-10 05:13:42.962842] Modified: hello.txt in /watched1/
+[2025-06-10 05:13:47.453767] Modified: hello.txt in /watched1/
+[2025-06-10 05:13:47.454873] Modified: hello.txt in /watched1/
+[2025-06-10 05:13:57.189657] Moved: hello.txt in /watched1/ (MOVED_FROM)
+[2025-06-10 05:14:28.600799] Moved: fri.js in /watched2/ (MOVED_TO)
+[2025-06-10 05:14:28.600530] Moved: fri.js in /watched1/ (MOVED_FROM)
+[2025-06-10 05:16:12.420756] Stopping monitor.
+[2025-06-10 05:17:26.302759] Monitoring: /watched1
+[2025-06-10 05:17:26.303624] Monitoring: /watched2
+[2025-06-10 05:17:37.161708] Moved: world.py in /watched2/ (MOVED_FROM)
+[2025-06-10 05:18:29.051682] Permission/metadata changed: fri.js in /watched2/
+[2025-06-10 05:19:03.044371] Permission/metadata changed: fri.js in /watched2/
+[2025-06-10 05:19:12.510493] Stopping monitor.
+[2025-06-10 05:26:23.996947] Monitoring: /watched1
+[2025-06-10 05:26:23.999237] Monitoring: /watched2
+[2025-06-10 05:26:32.443770] Created: hello.txt in /watched1/
+[2025-06-10 05:26:41.175641] Moved: hello.txt in /watched1/ (MOVED_FROM)
+[2025-06-10 05:27:23.778265] Stopping monitor.
+[2025-06-10 05:27:28.335393] Monitoring: /watched1
+[2025-06-10 05:27:28.337447] Monitoring: /watched2
+[2025-06-10 05:27:40.005123] Moved: fri.js in /watched2/ (MOVED_FROM)
+[2025-06-10 05:29:09.887225] Created: hello.txt in /watched1/
+[2025-06-10 05:29:26.257779] Deleted: hello.txt from /watched1/
+[2025-06-10 05:29:38.393856] Stopping monitor.
+[2025-06-10 06:10:28.015956] Monitoring: /watched1
+[2025-06-10 06:10:28.017156] Monitoring: /watched2
+[2025-06-10 06:12:36.932429] Created: hello.txt in /watched1/
+[2025-06-10 06:12:36.932561] Permission/metadata changed: hello.txt in /watched1/
+[2025-06-10 06:13:25.135706] Permission/metadata changed: hello.txt in /watched1/
+[2025-06-10 06:14:02.344791] Created: .goutputstream-NL4P72 in /watched1/
+[2025-06-10 06:14:02.345004] Permission/metadata changed: .goutputstream-NL4P72 in /watched1/
+[2025-06-10 06:14:02.356618] Modified: .goutputstream-NL4P72 in /watched1/
+[2025-06-10 06:14:02.368937] Moved: .goutputstream-NL4P72 in /watched1/ (MOVED_FROM)
+[2025-06-10 06:14:02.369043] Moved: hello.txt in /watched1/ (MOVED_TO)
+[2025-06-10 06:17:49.049455] Stopping monitor.
+[2025-06-10 06:17:59.270921] Monitoring: /watched1
+[2025-06-10 06:17:59.272407] Monitoring: /watched2
+[2025-06-13 13:07:24.023153] Monitoring: /watched1
+[2025-06-13 13:07:24.025764] Monitoring: /watched2
+[2025-06-13 13:07:53.764338] Modified: hello.txt in /watched1/
+[2025-06-13 13:07:53.765625] Modified: hello.txt in /watched1/
+[2025-06-13 13:07:54.140075] Modified: hello.txt in /watched1/
+[2025-06-13 13:07:54.142114] Modified: hello.txt in /watched1/
+[2025-06-13 13:08:20.828624] Created: world.py in /watched2/
+[2025-06-13 13:09:52.719600] Created: fri.txt in /watched2/
+[2025-06-13 13:10:03.078614] Modified: fri.txt in /watched2/
+[2025-06-13 13:10:03.079005] Modified: fri.txt in /watched2/
+[2025-06-13 13:10:08.184056] Modified: fri.txt in /watched2/
+[2025-06-13 13:10:08.184296] Modified: fri.txt in /watched2/
+[2025-06-13 13:10:15.451052] Modified: fri.txt in /watched2/
+[2025-06-13 13:10:15.453225] Modified: fri.txt in /watched2/
+[2025-06-13 13:10:40.321619] Created: delfile.js in /watched1/
+[2025-06-13 13:10:48.056657] Moved: delfile.js in /watched1/ (MOVED_FROM)
+[2025-06-13 13:11:37.391570] Moved: fri.txt in /watched2/ (MOVED_FROM)
+[2025-06-13 13:11:37.397948] Moved: fri.txt in /watched1/ (MOVED_TO)
+[2025-06-13 13:40:59.994415] Stopping monitor.
+[2025-06-13 13:43:41.074051] Monitoring: /watched1
+[2025-06-13 13:43:41.078779] Monitoring: /watched2
+[2025-06-13 13:43:43.443322] Stopping monitor.
