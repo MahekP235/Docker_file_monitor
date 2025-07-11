@@ -7,6 +7,12 @@ A Dockerized Python-based monitoring tool that watches **multiple folders** insi
 - File **modification**
 - File **move/rename**
 - File **permission or metadata changes**
+- File **access**
+- File **open**
+- File **moving**
+- File **close**
+- File system **unmount**
+- **symlink creation**
 
 Logs are printed to `stdout` and can optionally be saved to a file.
 
@@ -18,7 +24,7 @@ Logs are printed to `stdout` and can optionally be saved to a file.
 
 ## Prerequisites
 
-- Docker installed on your system (use `sudo pacman -S docker` on Arch)
+- Docker installed on your system (use `ssudo apt-get install docker-ce docker-ce-cli containerd.io containerd.io docker-buildx-plugin docker-compose-plugin` on Ubuntu)
 - Your user should have access to Docker or use `sudo`
 - Basic terminal knowledge
 
@@ -33,7 +39,7 @@ Logs are printed to `stdout` and can optionally be saved to a file.
 
 ### 2. Save these files:
 
-watch.py – Python monitoring script
+monitor.py – Python monitoring script
 Dockerfile – Builds Arch Linux-based Docker image
 
 ### 3. Build the Docker Image
